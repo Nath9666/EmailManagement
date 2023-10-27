@@ -43,8 +43,23 @@ Voici quelque lien externe que nous avons utilisée
 - [Un ancien projet trouver sur github](https://github.com/tknarr/email_mgmt_client/tree/master)
 - [Un cours sur un cour Full-Stack Vue + Node](https://vuejsdevelopers.com/courses/fullstack-vue-node/)
 - [Les api de google](https://developers.google.com/gmail/api/quickstart/nodejs)
-- [L'api de microsoft pour outlook](https://docs.microsoft.com/en-us/outlook/rest/node-tutorial)
-- [L'api de github pour idendifier les utilisateurs](https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/)
+- [L&#39;api de microsoft pour outlook](https://docs.microsoft.com/en-us/outlook/rest/node-tutorial)
+- [L&#39;api de github pour idendifier les utilisateurs](https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/)
 - [La documentation pour une base de donnée firebase](https://firebase.google.com/docs/firestore/quickstart)
 
 ## Project structure
+
+## Todo list
+
+- [ ] enlever les choses appartenant au template
+- [ ] creer 2 tables pour la base de donnée
+- [ ] lier la base de donnée firebase à notre projet
+- [ ] creer les pages de login et de sign in
+  - [ ] creer 2 utilisateurs avec mot de passe
+- [ ] bouton de Aouth microsft (or git) pour les utilisateurs
+- [ ] faire la page ou on voit les mails
+  - [ ] envoyer un message
+  - [ ] supprimer un mail
+- [ ] refaire le css des pages
+- [ ] check les routes pour quelle soit sécurité
+  - [ ] faire une page erreur 404 si route pas trouvé
