@@ -47,6 +47,19 @@ Voici quelque lien externe que nous avons utilisée
 - [L&#39;api de github pour idendifier les utilisateurs](https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/)
 - [La documentation pour une base de donnée firebase](https://firebase.google.com/docs/firestore/quickstart)
 
+### Front end
+
+- [Vue.js](https://vuejs.org/)
+- [Boostrop vue](https://bootstrap-vue.org/docs)
+- [Boostrop](https://getbootstrap.com/)
+- [Exemple in vue](https://github.com/twbs/examples/tree/main/vue)
+- [Projet front End](https://www.creative-tim.com/product/bootstrap-vue-argon-dashboard?partner=134895)
+
+### Back end
+
+- [FireBase](https://firebase.google.com/)
+- [Node.js](https://nodejs.org/en/)
+
 ## Project structure
 
 ## Todo list
