@@ -18,6 +18,12 @@ const firebaseConfig = {
 const firebaseapp = initializeApp(firebaseConfig)
 const db = getFirestore(firebaseapp)
 
-console.log(db)
+const notes = []
 
-export default firebaseapp
+var queryNotes = await getDocs(collection(db, 'notes'))
+
+queryNotes.forEach((doc) => {
+  notes.push({ id: doc.id, ...doc.data() })
+})
+
+export default { firebaseapp, db, notes }
