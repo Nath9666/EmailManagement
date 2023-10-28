@@ -53,7 +53,8 @@ Voici quelque lien externe que nous avons utilisée
 
 - [ ] enlever les choses appartenant au template
 - [ ] creer 2 tables pour la base de donnée
-- [ ] lier la base de donnée firebase à notre projet
+- [x] lier la base de donnée firebase à notre projet
+  - [ ] mettre les clée de l'apî dans un .env
 - [ ] creer les pages de login et de sign in
   - [ ] creer 2 utilisateurs avec mot de passe
 - [ ] bouton de Aouth microsft (or git) pour les utilisateurs
