@@ -1,9 +1,14 @@
 <script>
-import notes from '..firebase'
+import notes from '../firebase'
 
 export default {
   name: 'EmailsView',
-  components: {}
+  components: {},
+  data() {
+    return {
+      notes: notes.notes
+    }
+  }
 }
 </script>
 
@@ -11,6 +16,10 @@ export default {
   <div class="emails">
     <h1>This is all the mails there are in the Database</h1>
     <p>All the mails</p>
+    <div v-for="note in notes" :key="note.id">
+      <h3>{{ note.id }}</h3>
+      <p>{{ note.description }}</p>
+    </div>
   </div>
 </template>
 
