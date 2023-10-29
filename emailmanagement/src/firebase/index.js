@@ -18,12 +18,18 @@ const firebaseConfig = {
 const firebaseapp = initializeApp(firebaseConfig)
 const db = getFirestore(firebaseapp)
 
-const notes = []
+async function refreshData() {
+  const notes = []
+  var queryNotes = await getDocs(collection(db, 'notes'))
+  queryNotes.forEach((doc) => {
+    notes.push({ id: doc.id, ...doc.data() })
+  })
+  return notes
+}
 
-var queryNotes = await getDocs(collection(db, 'notes'))
+async function addNote(note) {
+  await addDoc(collection(db, 'notes'), { description: note })
+  this.refreshData()
+}
 
-queryNotes.forEach((doc) => {
-  notes.push({ id: doc.id, ...doc.data() })
-})
-
-export default { firebaseapp, db, notes }
+export default { firebaseapp, db, addNote, refreshData }
