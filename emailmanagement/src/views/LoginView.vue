@@ -16,7 +16,7 @@
       </b-container>
     </div>
     <!-- Page content -->
-    <b-container class="mt--8 pb-5">
+    <div class="mt--8 pb-5">
       <b-row class="justify-content-center">
         <b-col lg="5" md="7">
           <b-card no-body class="bg-secondary border-0 mb-0">
@@ -88,11 +88,14 @@
           </b-row>
         </b-col>
       </b-row>
-    </b-container>
+    </div>
   </div>
 </template>
 
 <script>
+
+import 'bootstrap/dist/css/bootstrap.css'
+
 export default {
   data() {
     return {
