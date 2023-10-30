@@ -12,7 +12,7 @@ import EcosystemIcon from './icons/IconEcosystem.vue'
     </template>
     <template #heading>Subject</template>
 
-    <a href="./M1_DT_IRV_Projet_ST2AWD.pdf" target="_blank" rel="noopener">Subject of the project</a>
+    <a href="https://thomas-veillard.fr/front-end-web-development/vue/project/" target="_blank" rel="noopener">Subject of the project</a>
     provides you with all information you need to understand this project.
   </WelcomeItem>
 
@@ -43,6 +43,7 @@ import EcosystemIcon from './icons/IconEcosystem.vue'
       <li><a href="https://getbootstrap.com/" target="_blank" rel="noopener">Bootstrap</a></li>
       <li><a href="https://firebase.google.com/" target="_blank" rel="noopener">FireBase</a></li>
       <li><a href="https://nodejs.org/en/" target="_blank" rel="noopener">Nodejs</a></li>
+      <li><a href="https://www.npmjs.com/" target="_blank" rel="noopener">NPM</a></li>
     </ul>
   </WelcomeItem>
 </template>
