@@ -11,27 +11,28 @@
 <script>
 export default {
   name: "NotFound",
-beforeUnmount() {
-  const header = document.querySelector("header");
-  if (header) {
-    header.style.display = "block";
-  }
-},
+  beforeUnmount() {
+    const header = document.querySelector("header");
+    if (header) {
+      header.style.display = "block";
+    }
+  },
 }
 </script>
 
 <style>
-.not-found {
+.not-found{
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  position: absolute;
-  bottom : 35px;
-  left: 45%;
+  position: relative;
+  bottom : 10px;
+  left: 53%;
   transform: translateX(-50%);
   width: 100%;
   height: 100vh;
 }
+
 
 h1 {
   font-size: 36px; 
@@ -39,9 +40,10 @@ h1 {
 }
 
 p {
-  font-size: 24px; 
+  font-size: 20px; 
   margin-top: 10px; 
   text-align: center; 
+  white-space: nowrap;
 }
 
 .lost-email-image {

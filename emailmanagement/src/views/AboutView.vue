@@ -12,6 +12,7 @@
 export default {
   name: "AboutPage",
   beforeUnmount() {
+    // Réafficher le header lorsque le composant est démonté
     const header = document.querySelector("header");
     if (header) {
       header.style.display = "block";

@@ -80,8 +80,8 @@ nav a:first-of-type {
     margin-left: -1rem;
     font-size: 1rem;
 
-    padding: 1rem 0;
-    margin-top: 1rem;
+    padding: 0;
+    margin-top: 0;
   }
 }
 </style>
