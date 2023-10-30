@@ -39,7 +39,7 @@
     transform: translateX(-50%);
     width: 100%;
     height: 100vh;
-    background-color: #cef1f9;
+    background-color: #e6e0ff  
   }
   
   h1 {
