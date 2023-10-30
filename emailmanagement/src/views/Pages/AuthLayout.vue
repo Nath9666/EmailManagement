@@ -1,6 +1,6 @@
 <template>
   <div class="main-content bg-default">
-    <base-nav
+    <!-- <base-nav
       v-model="showMenu"
       :transparent="true"
       menu-classes="justify-content-end"
@@ -48,7 +48,7 @@
           </b-nav-item>
         </b-navbar-nav>
       </template>
-    </base-nav>
+    </base-nav> -->
 
     <div class="main-content">
       <zoom-center-transition :duration="pageTransitionDuration" mode="out-in">
@@ -86,12 +86,12 @@
   </div>
 </template>
 <script>
-import { BaseNav } from '@/components'
+//import { BaseNav } from '@/components'
 import { ZoomCenterTransition } from 'vue2-transitions'
 
 export default {
   components: {
-    BaseNav,
+    //BaseNav,
     ZoomCenterTransition
   },
   props: {

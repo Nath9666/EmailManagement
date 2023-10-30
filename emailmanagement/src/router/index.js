@@ -28,7 +28,7 @@ const router = createRouter({
     },
     {
       path: '/login',
-      component: () => import('../views/Pages/AuthLayout.vue')
+      component: () => import('../views/LoginView.vue')
       //import AuthLayout from '../views/Pages/AuthLayout.vue'
     },
     // Redirection pour les routes non valides
