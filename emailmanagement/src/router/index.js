@@ -7,13 +7,29 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: HomeView
+      component: HomeView,
+      children: [
+        {
+          path: '/home',
+          name: 'home',
+          component: HomeView
+        },
+        {
+          path: '/about',
+          name: 'about',
+          component: () => import('../views/AboutView.vue')
+        }
+      ]
     },
     {
       path: '/about',
       name: 'about',
       component: () => import('../views/AboutView.vue')
+    },
+    {
+      path: '/login',
+      component: () => import('../views/Pages/AuthLayout.vue')
+      //import AuthLayout from '../views/Pages/AuthLayout.vue'
     },
     // Redirection pour les routes non valides
     {
