@@ -1,126 +1,184 @@
 <template>
   <div>
     <!-- Header -->
-    <div class="header bg-gradient-success py-7 py-lg-8 pt-lg-9">
-      <b-container class="container">
-        <div class="header-body text-center mb-7">
-          <b-row class="justify-content-center">
-            <b-col xl="5" lg="6" md="8" class="px-5">
-              <h1 class="text-white">Create an account</h1>
-              <p class="text-lead text-white">
-                Use these awesome forms to login or create new account in your project for free.
-              </p>
-            </b-col>
-          </b-row>
+    <div>
+      <div style="max-width: 1200px; margin: 0 auto">
+        <div style="text-align: center; margin-bottom: 7rem">
+          <div style="max-width: 500px; margin: 0 auto">
+            <h1 style="color: #fff">Create an account</h1>
+          </div>
         </div>
-      </b-container>
-      <div class="separator separator-bottom separator-skew zindex-100">
-        <svg
-          x="0"
-          y="0"
-          viewBox="0 0 2560 100"
-          preserveAspectRatio="none"
-          version="1.1"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
-        </svg>
       </div>
     </div>
     <!-- Page content -->
-    <b-container class="mt--8 pb-5">
+    <div style="margin-top: -8rem; padding-bottom: 5rem">
       <!-- Table -->
-      <b-row class="justify-content-center">
-        <b-col lg="6" md="8">
-          <b-card no-body class="bg-secondary border-0">
-            <b-card-header class="bg-transparent pb-5">
-              <div class="text-muted text-center mt-2 mb-4"><small>Sign up with</small></div>
-              <div class="text-center">
-                <a href="#" class="btn btn-neutral btn-icon mr-4">
-                  <span class="btn-inner--icon"><img src="img/icons/common/github.svg" /></span>
-                  <span class="btn-inner--text">Github</span>
-                </a>
-                <a href="#" class="btn btn-neutral btn-icon">
-                  <span class="btn-inner--icon"><img src="img/icons/common/google.svg" /></span>
-                  <span class="btn-inner--text">Google</span>
-                </a>
+      <div style="display: flex; justify-content: center">
+        <div style="max-width: 600px">
+          <div style="color: #fff">
+            <div style="background-color: transparent">
+              <div
+                style="color: #8898aa; text-align: center; margin-top: 1rem; margin-bottom: 1rem"
+              >
+                <small>Sign up with</small>
               </div>
-            </b-card-header>
-            <b-card-body class="px-lg-5 py-lg-5">
-              <div class="text-center text-muted mb-4">
-                <small>Or sign up with credentials</small>
+              <div style="text-align: center">
+                <div style="display: flex; justify-content: center; gap: 10px">
+                  <a
+                    href="#"
+                    style="
+                      background-color: #ffffff;
+                      border: 1px solid #000000;
+                      display: inline-block;
+                      padding: 10px;
+                      border-radius: 5px;
+                      color: #000000;
+                      text-decoration: none;
+                    "
+                  >
+                    <span style="display: block; margin-bottom: 5px"
+                      ><img src="@\assets\common\github.svg" style="max-width: 30px; height: auto"
+                    /></span>
+                    <span>Github</span>
+                  </a>
+                  <a
+                    href="#"
+                    style="
+                      background-color: #b50000;
+                      border-radius: 15px;
+                      display: inline-block;
+                      padding: 10px;
+                      color: #fff;
+                      text-decoration: none;
+                    "
+                  >
+                    <span style="display: block; margin-bottom: 5px"
+                      ><img src="@\assets\common\google.svg" style="max-width: 30px; height: auto"
+                    /></span>
+                    <span>Google</span>
+                  </a>
+                  <a
+                    href="#"
+                    style="
+                      background: linear-gradient(#ffffff, #000000);
+                      display: inline-block;
+                      padding: 10px;
+                      border-radius: 5px;
+                      color: #ffffff;
+                      text-decoration: none;
+                    "
+                  >
+                    <span style="display: block; margin-bottom: 5px"
+                      ><img src="@\assets\common\windows.svg" style="max-width: 30px; height: auto"
+                    /></span>
+                    <span>Windows</span>
+                  </a>
+                </div>
               </div>
-              <validation-observer v-slot="{ handleSubmit }" ref="formValidator">
-                <b-form role="form" @submit.prevent="handleSubmit(onSubmit)">
-                  <base-input
-                    alternative
-                    class="mb-3"
-                    prepend-icon="ni ni-hat-3"
-                    placeholder="Name"
-                    name="Name"
-                    :rules="{ required: true }"
-                    v-model="model.name"
-                  >
-                  </base-input>
+            </div>
+            <div style="padding: 5rem 2rem 5rem">
+              <!-- Reste du code inchangé -->
+              <div style="margin-top: -5rem">
+                <div style="display: flex; justify-content: center">
+                  <div style="max-width: 600px">
+                    <div style="color: #5e72e4; text-align: center; margin-top: 2rem">
+                      <small>Or sign up with credentials</small>
+                    </div>
+                    <form ref="formValidator">
+                      <div role="form">
+                        <input
+                          alternative
+                          style="width: 100%; margin-bottom: 15px; font-size: medium"
+                          placeholder="Name"
+                          name="Name"
+                          :rules="{ required: true }"
+                          v-model="model.name"
+                        />
 
-                  <base-input
-                    alternative
-                    class="mb-3"
-                    prepend-icon="ni ni-email-83"
-                    placeholder="Email"
-                    name="Email"
-                    :rules="{ required: true, email: true }"
-                    v-model="model.email"
-                  >
-                  </base-input>
+                        <input
+                          alternative
+                          style="width: 100%; margin-bottom: 15px; font-size: medium"
+                          placeholder="Email"
+                          name="Email"
+                          :rules="{ required: true, email: true }"
+                          v-model="model.email"
+                        />
 
-                  <base-input
-                    alternative
-                    class="mb-3"
-                    prepend-icon="ni ni-lock-circle-open"
-                    placeholder="password"
-                    type="password"
-                    name="Password"
-                    :rules="{ required: true, min: 6 }"
-                    v-model="model.password"
-                  >
-                  </base-input>
-                  <div class="text-muted font-italic">
-                    <small
-                      >password strength:
-                      <span class="text-success font-weight-700">strong</span></small
-                    >
-                  </div>
-                  <b-row class="my-4">
-                    <b-col cols="12">
-                      <base-input
-                        :rules="{ required: { allowFalse: false } }"
-                        name="Privacy"
-                        Policy
-                      >
-                        <b-form-checkbox v-model="model.agree">
-                          <span class="text-muted"
-                            >I agree with the <a href="#!">Privacy Policy</a></span
+                        <input
+                          alternative
+                          style="width: 100%; margin-bottom: 15px; font-size: medium"
+                          placeholder="password"
+                          type="password"
+                          name="Password"
+                          :rules="{ required: true, min: 6 }"
+                          v-model="model.password"
+                        />
+                        <input
+                          alternative
+                          style="width: 100%; margin-bottom: 15px; font-size: medium"
+                          placeholder="repeat password"
+                          type="password"
+                          name="repeatPassword"
+                          :rules="{ required: true, min: 6 }"
+                          v-model="model.password"
+                        />
+                        <div style="color: #8898aa; font-italic; margin-bottom: 1rem;">
+                          <small
+                            >password strength:
+                            <span style="color: #2dce89; font-weight: 700">strong</span></small
                           >
-                        </b-form-checkbox>
-                      </base-input>
-                    </b-col>
-                  </b-row>
-                  <div class="text-center">
-                    <b-button type="submit" variant="primary" class="mt-4">Create account</b-button>
+                        </div>
+                        <div style="margin: 4rem 0">
+                          <div style="display: flex; align-items: center">
+                            <input
+                              type="checkbox"
+                              :rules="{ required: { allowFalse: false } }"
+                              name="Privacy"
+                              Policy
+                              @click="model.agree = !model.agree"
+                            />
+                            <span style="color: #8898aa; margin-left: 1rem"
+                              >I agree with the
+                              <a href="#!" style="color: #5e72e4; text-decoration: underline"
+                                >Privacy Policy</a
+                              ></span
+                            >
+                          </div>
+                        </div>
+                        <div style="text-align: center">
+                          <button
+                            type="submit"
+                            variant="primary"
+                            style="
+                              background-color: #5e72e4;
+                              color: #fff;
+                              padding: 10px 20px;
+                              border: none;
+                              border-radius: 5px;
+                              cursor: pointer;
+                              font-size: 16px;
+                              transition: background-color 0.3s ease;
+                            "
+                          >
+                            Create account
+                          </button>
+                        </div>
+                      </div>
+                    </form>
                   </div>
-                </b-form>
-              </validation-observer>
-            </b-card-body>
-          </b-card>
-        </b-col>
-      </b-row>
-    </b-container>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
+
 <script>
 export default {
-  name: 'register',
+  name: 'registerView',
   data() {
     return {
       model: {
@@ -133,9 +191,41 @@ export default {
   },
   methods: {
     onSubmit() {
+      alert('Form submitted!')
       // this will be called only after form is valid. You can do an api call here to register users
     }
   }
 }
 </script>
-<style></style>
+
+<style scoped>
+/* Centrer les logos sur une seule ligne */
+div.btn-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Mettre l'email et le mot de passe en dessous de l'autre */
+input {
+  width: 100%;
+  margin-bottom: 15px;
+  font-size: medium;
+}
+
+input:focus {
+  background-color: #5e72e44e;
+  color: #fff;
+}
+
+/* Style pour le bouton de connexion */
+button {
+  background-color: #5e72e4; /* Couleur de fond */
+  color: #fff; /* Couleur du texte */
+  padding: 10px 20px; /* Espacement du texte par rapport aux bords */
+  border: none; /* Supprimer la bordure */
+  border-radius: 5px; /* Coins arrondis */
+  cursor: pointer; /* Curseur pointer au survol */
+  font-size: 10px;
+}
+</style>
