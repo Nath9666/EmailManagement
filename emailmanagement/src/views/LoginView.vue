@@ -4,23 +4,23 @@
     <div class="header bg-gradient-success py-7 py-lg-8 pt-lg-9">
       <b-container>
         <div class="header-body text-center mb-7">
-          <b-row class="justify-content-center">
-            <b-col xl="5" lg="6" md="8" class="px-5">
+          <div class="justify-content-center">
+            <div xl="5" lg="6" md="8" class="px-5">
               <h1 class="text-white">Welcome!</h1>
               <p class="text-lead text-white">
                 Use these awesome forms to login or create new account in your project for free.
               </p>
-            </b-col>
-          </b-row>
+            </div>
+          </div>
         </div>
       </b-container>
     </div>
     <!-- Page content -->
     <div class="mt--8 pb-5">
-      <b-row class="justify-content-center">
-        <b-col lg="5" md="7">
-          <b-card no-body class="bg-secondary border-0 mb-0">
-            <b-card-header class="bg-transparent pb-5">
+      <div class="justify-content-center">
+        <div lg="5" md="7">
+          <div no-body class="bg-secondary border-0 mb-0">
+            <div class="bg-transparent pb-5">
               <div class="text-muted text-center mt-2 mb-3"><small>Sign in with</small></div>
               <div class="btn-wrapper text-center">
                 <a href="#" class="btn btn-neutral btn-icon">
@@ -36,24 +36,23 @@
                   <span class="btn-inner--text">Windows</span>
                 </a>
               </div>
-            </b-card-header>
-            <b-card-body class="px-lg-5 py-lg-5">
+            </div>
+            <div class="px-lg-5 py-lg-5">
               <div class="text-center text-muted mb-4">
                 <small>Or sign in with credentials</small>
               </div>
-              <validation-observer ref="formValidator">
+              <form ref="formValidator">
                 <b-form role="form">
-                  <base-input
+                  <input
                     alternative
                     class="mb-3"
                     name="Email"
                     :rules="{ required: true, email: true }"
                     prepend-icon="ni ni-email-83"
                     placeholder="Email"
-                  >
-                  </base-input>
+                  />
 
-                  <base-input
+                  <input
                     alternative
                     class="mb-3"
                     name="Password"
@@ -61,40 +60,34 @@
                     prepend-icon="ni ni-lock-circle-open"
                     type="password"
                     placeholder="Password"
-                  >
-                  </base-input>
-
-                  <b-form-checkbox>Remember me</b-form-checkbox>
+                  />
                   <div class="text-center">
-                    <base-button type="primary" native-type="submit" class="my-4"
-                      >Sign in</base-button
-                    >
+                    <button type="primary" native-type="submit" class="my-4">Sign in</button>
                   </div>
                 </b-form>
-              </validation-observer>
-            </b-card-body>
-          </b-card>
-          <b-row class="mt-3">
-            <b-col cols="6">
+              </form>
+            </div>
+          </div>
+          <div class="mt-3">
+            <div cols="6">
               <router-link to="/dashboard" class="text-light"
                 ><small>Forgot password?</small></router-link
               >
-            </b-col>
-            <b-col cols="6" class="text-right">
+            </div>
+            <div cols="6" class="text-right">
               <router-link to="/register" class="text-light"
                 ><small>Create new account</small></router-link
               >
-            </b-col>
-          </b-row>
-        </b-col>
-      </b-row>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-
-import 'bootstrap/dist/css/bootstrap.css'
+//import 'bootstrap/dist/css/bootstrap.css'
 
 export default {
   data() {
@@ -113,3 +106,57 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+/* Centrer les logos sur une seule ligne */
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Mettre l'email et le mot de passe en dessous de l'autre */
+input {
+  width: 100%;
+  margin-bottom: 15px;
+  font-size: medium;
+}
+
+input:focus {
+  background-color: #5e72e44e;
+  color: #fff;
+}
+
+/* Style pour le bouton de connexion */
+button {
+  background-color: #5e72e4; /* Couleur de fond */
+  color: #fff; /* Couleur du texte */
+  padding: 10px 20px; /* Espacement du texte par rapport aux bords */
+  border: none; /* Supprimer la bordure */
+  border-radius: 5px; /* Coins arrondis */
+  cursor: pointer; /* Curseur pointer au survol */
+  font-size: 16px; /* Taille du texte */
+  transition: background-color 0.3s ease; /* Animation de transition */
+}
+
+button:hover {
+  background-color: #3949ab; /* Couleur de fond au survol */
+}
+
+/* Style pour les liens "Forgot password?" et "Create new account" */
+.mt-3 div {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+/* Responsive : Réduire la taille des logos pour les écrans plus petits */
+@media (max-width: 768px) {
+  .btn-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Ajouter plus de styles de responsive si nécessaire */
+}
+</style>

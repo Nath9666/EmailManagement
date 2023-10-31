@@ -29,7 +29,10 @@ const router = createRouter({
     {
       path: '/login',
       component: () => import('../views/LoginView.vue')
-      //import AuthLayout from '../views/Pages/AuthLayout.vue'
+    },
+    {
+      path: '/register',
+      component: () => import('../views/RegisterView.vue')
     },
     // Redirection pour les routes non valides
     {
