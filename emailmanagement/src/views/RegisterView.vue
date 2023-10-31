@@ -84,8 +84,8 @@
                     <div style="color: #5e72e4; text-align: center; margin-top: 2rem">
                       <small>Or sign up with credentials</small>
                     </div>
-                    <form ref="formValidator">
-                      <div role="form">
+                    <div ref="divValidator">
+                      <div>
                         <input
                           alternative
                           style="width: 100%; margin-bottom: 15px; font-size: medium"
@@ -107,7 +107,7 @@
                         <input
                           alternative
                           style="width: 100%; margin-bottom: 15px; font-size: medium"
-                          placeholder="password"
+                          placeholder="Password"
                           type="password"
                           name="Password"
                           :rules="{ required: true, min: 6 }"
@@ -116,16 +116,18 @@
                         <input
                           alternative
                           style="width: 100%; margin-bottom: 15px; font-size: medium"
-                          placeholder="repeat password"
+                          placeholder="Repeat password"
                           type="password"
                           name="repeatPassword"
                           :rules="{ required: true, min: 6 }"
-                          v-model="model.password"
+                          v-model="model.repeatPassword"
                         />
                         <div style="color: #8898aa; font-italic; margin-bottom: 1rem;">
                           <small
-                            >password strength:
-                            <span style="color: #2dce89; font-weight: 700">strong</span></small
+                            >Password strength:
+                            <span style="color: #2dce89; font-weight: 700">{{
+                              solidityPassword(model.password).name
+                            }}</span></small
                           >
                         </div>
                         <div style="margin: 4rem 0">
@@ -146,8 +148,11 @@
                           </div>
                         </div>
                         <div style="text-align: center">
+                          <p v-if="error" style="color: red">
+                            {{ error }}
+                          </p>
                           <button
-                            type="submit"
+                            @click="onSubmit"
                             variant="primary"
                             style="
                               background-color: #5e72e4;
@@ -164,7 +169,7 @@
                           </button>
                         </div>
                       </div>
-                    </form>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -185,14 +190,64 @@ export default {
         name: '',
         email: '',
         password: '',
+        repeatPassword: '',
         agree: false
-      }
+      },
+      error: ''
     }
   },
   methods: {
     onSubmit() {
-      alert('Form submitted!')
-      // this will be called only after form is valid. You can do an api call here to register users
+      // verifie que toutes les variables du formulaires sont pas vite et que les repeat password correspond bien au password
+      if (
+        this.model.name === '' ||
+        this.model.email === '' ||
+        this.model.password === '' ||
+        this.model.repeatPassword === '' ||
+        this.model.agree === false
+      ) {
+        this.error = 'Please fill in all the fields'
+        return {
+          error: 'Please fill in all the fields'
+        }
+      } else if (this.model.password !== this.model.repeatPassword) {
+        this.error = 'Passwords do not match'
+        return {
+          error: 'Passwords do not match'
+        }
+      } else {
+        // si tout est bon, on envoie les données au serveur et on renvoie à la page de login
+        this.$router.push('./login')
+      }
+    },
+    solidityPassword(password) {
+      // check the solidity of the password
+      let strength = 0
+
+      // check if password length is greater than 8
+      if (password.length > 8) strength++
+
+      // check if password contains both lower and uppercase letters
+      if (/[a-z]/.test(password) && /[A-Z]/.test(password)) strength++
+
+      // check if password contains numbers
+      if (/[0-9]/.test(password)) strength++
+
+      // check if password contains special characters
+      if (/[^A-Za-z0-9]/.test(password)) strength++
+
+      switch (strength) {
+        case 0:
+          return { name: 'Very weak', color: '#f536' }
+        case 1:
+          return { name: 'Weak', color: '#f5365c' }
+        case 2:
+          return { name: 'Medium', color: '#FFFF00' }
+        case 3:
+          return { name: 'Strong', color: '#2dce89' }
+        case 4:
+          return { name: 'Very strong', color: '#2dce70' }
+      }
     }
   }
 }
