@@ -13,7 +13,8 @@ import HelloWorld from './components/HelloWorld.vue'
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/coucou">Email</RouterLink>
+        <RouterLink to="/emails">Email</RouterLink>
+        <RouterLink to="/Login">Login</RouterLink>
       </nav>
     </div>
   </header>
@@ -80,8 +81,8 @@ nav a:first-of-type {
     margin-left: -1rem;
     font-size: 1rem;
 
-    padding: 1rem 0;
-    margin-top: 1rem;
+    padding: 0;
+    margin-top: 0;
   }
 }
 </style>

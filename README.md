@@ -76,4 +76,4 @@ Voici quelque lien externe que nous avons utilisée
   - [ ] supprimer un mail
 - [ ] refaire le css des pages
 - [ ] check les routes pour quelle soit sécurité
-  - [ ] faire une page erreur 404 si route pas trouvé
+  - [x] faire une page erreur 404 si route pas trouvé

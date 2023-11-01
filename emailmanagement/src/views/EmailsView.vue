@@ -1,15 +1,17 @@
 <script>
-import refreshData from '../firebase'
+import firebase from '../firebase'
 
 export default {
   name: 'EmailsView',
   components: {},
   data() {
     return {
-      notes: refreshData.refreshData()
+      notes: firebase.emails
     }
   }
 }
+
+console.log(firebase.emails)
 </script>
 
 <template>
