@@ -42,10 +42,10 @@ const router = createRouter({
       component: NotFound
     },
     {
-      path: '/coucou',
-      name: 'coucou',
+      path: '/emails',
+      name: 'emails',
       component: () => import('../views/EmailsView.vue')
-    } 
+    }
   ]
 })
 

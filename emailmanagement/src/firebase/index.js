@@ -18,6 +18,8 @@ const firebaseConfig = {
 const firebaseapp = initializeApp(firebaseConfig)
 const db = getFirestore(firebaseapp)
 
+// Pour recuperer les notes dans la base de donnees
+
 const notes = []
 
 var queryNotes = await getDocs(collection(db, 'notes'))
@@ -26,4 +28,24 @@ queryNotes.forEach((doc) => {
   notes.push({ id: doc.id, ...doc.data() })
 })
 
-export default { firebaseapp, db, notes }
+// Pour recuperer les emails dans la base de donnees
+
+const emails = []
+
+var queryEmails = await getDocs(collection(db, 'email'))
+
+queryEmails.forEach((doc) => {
+  emails.push({ id: doc.id, ...doc.data() })
+})
+
+// Pour recuperer les utilisateurs dans la base de donnees
+
+const users = []
+
+var queryUsers = await getDocs(collection(db, 'users'))
+
+queryUsers.forEach((doc) => {
+  users.push({ id: doc.id, ...doc.data() })
+})
+
+export default { firebaseapp, db, notes, emails }
