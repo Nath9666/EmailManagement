@@ -2,7 +2,7 @@
   <div>
     <!-- Header -->
     <div class="header bg-gradient-success py-7 py-lg-8 pt-lg-9">
-      <b-container>
+      <div>
         <div class="header-body text-center mb-7">
           <div class="justify-content-center">
             <div xl="5" lg="6" md="8" class="px-5">
@@ -13,7 +13,7 @@
             </div>
           </div>
         </div>
-      </b-container>
+      </div>
     </div>
     <!-- Page content -->
     <div class="mt--8 pb-5">
@@ -41,8 +41,8 @@
               <div class="text-center text-muted mb-4">
                 <small>Or sign in with credentials</small>
               </div>
-              <form ref="formValidator">
-                <b-form role="form">
+              <div ref="formValidator">
+                <div role="form">
                   <input
                     alternative
                     class="mb-3"
@@ -50,6 +50,7 @@
                     :rules="{ required: true, email: true }"
                     prepend-icon="ni ni-email-83"
                     placeholder="Email"
+                    v-model="model.email"
                   />
 
                   <input
@@ -60,12 +61,16 @@
                     prepend-icon="ni ni-lock-circle-open"
                     type="password"
                     placeholder="Password"
+                    v-model="model.password"
                   />
+                  <p class="text-danger" v-if="error">{{ error }}</p>
                   <div class="text-center">
-                    <button type="primary" native-type="submit" class="my-4">Sign in</button>
+                    <button @click="onSubmit" type="primary" native-type="submit" class="my-4">
+                      Sign in
+                    </button>
                   </div>
-                </b-form>
-              </form>
+                </div>
+              </div>
             </div>
           </div>
           <div class="mt-3">
@@ -87,21 +92,39 @@
 </template>
 
 <script>
-//import 'bootstrap/dist/css/bootstrap.css'
+import firebase from '../firebase'
+import { useStore } from '../stores/user'
 
 export default {
   data() {
     return {
       model: {
         email: '',
-        password: '',
-        rememberMe: false
-      }
+        password: ''
+      },
+      error: null
     }
   },
   methods: {
     onSubmit() {
-      // this will be called only after form is valid. You can do api call here to login
+      const store = useStore()
+
+      if (this.model.email == '' || this.model.password == '') {
+        this.error = 'Please enter your email and password'
+      } else {
+        console.log('Form submitted.')
+        firebase.users.forEach((user) => {
+          if (user.email == this.model.email && user.password == this.model.password) {
+            console.log('User found.')
+            console.log(store)
+            store.user = user
+            console.log('User logged in.' + store.user)
+            this.$router.push('./home')
+          } else {
+            this.error = 'Invalid email or password'
+          }
+        })
+      }
     }
   }
 }

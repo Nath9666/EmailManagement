@@ -20,6 +20,8 @@ const db = getFirestore(firebaseapp)
 
 // Pour recuperer les notes dans la base de donnees
 
+let notes = []
+
 async function refreshData() {
   const notes = []
   var queryNotes = await getDocs(collection(db, 'notes'))
@@ -28,6 +30,8 @@ async function refreshData() {
   })
   return notes
 }
+
+notes = refreshData()
 
 async function addNote(note) {
   await addDoc(collection(db, 'notes'), { description: note })
@@ -48,10 +52,18 @@ queryEmails.forEach((doc) => {
 
 const users = []
 
-var queryUsers = await getDocs(collection(db, 'users'))
+var queryUsers = await getDocs(collection(db, 'user'))
 
 queryUsers.forEach((doc) => {
   users.push({ id: doc.id, ...doc.data() })
 })
 
-export default { firebaseapp, db, notes, emails }
+async function addUser(user) {
+  await addDoc(collection(db, 'user'), {
+    email: user.email,
+    password: user.password,
+    name: user.name
+  })
+}
+
+export default { firebaseapp, db, notes, emails, users, addNote, addUser }

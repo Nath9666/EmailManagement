@@ -182,6 +182,8 @@
 </template>
 
 <script>
+import firebase from '../firebase'
+
 export default {
   name: 'registerView',
   data() {
@@ -217,6 +219,11 @@ export default {
         }
       } else {
         // si tout est bon, on envoie les données au serveur et on renvoie à la page de login
+        firebase.addUser({
+          name: this.model.name,
+          email: this.model.email,
+          password: this.model.password
+        })
         this.$router.push('./login')
       }
     },
