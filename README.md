@@ -64,16 +64,16 @@ Voici quelque lien externe que nous avons utilisée
 
 ## Todo list
 
-- [ ] enlever les choses appartenant au template
+- [X] enlever les choses appartenant au template
 - [X] creer 2 tables pour la base de donnée
 - [X] lier la base de donnée firebase à notre projet
   - [ ] mettre les clée de l'apî dans un .env (pas possible pour le moment)
-- [ ] creer les pages de login et de sign in
+- [X] creer les pages de login et de sign in
   - [ ] creer 2 utilisateurs avec mot de passe
 - [ ] bouton de Aouth microsft (or git) pour les utilisateurs
 - [ ] faire la page ou on voit les mails
   - [ ] envoyer un message
   - [ ] supprimer un mail
 - [ ] refaire le css des pages
-- [ ] check les routes pour quelle soit sécurité
-  - [x] faire une page erreur 404 si route pas trouvé
+- [X] check les routes pour quelle soit sécurité
+  - [X] faire une page erreur 404 si route pas trouvé
