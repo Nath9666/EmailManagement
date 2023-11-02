@@ -6,6 +6,9 @@ export const useStore = defineStore('user', () => {
   function windows() {
     user.value = 'windows'
   }
+  function updateUser(newUser) {
+    user.value = newUser
+  }
 
-  return { user, windows }
+  return { user, windows, updateUser }
 })

@@ -1,6 +1,9 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import { useStore } from './stores/user'
+
+const store = useStore()
 </script>
 
 <template>
@@ -8,13 +11,15 @@ import HelloWorld from './components/HelloWorld.vue'
     <img alt="Vue logo" class="logo" src="@/assets/logo/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld msg="Welcome to Emailo" />
+      <HelloWorld msg="Welcome to Emailo, "> </HelloWorld>
+
+      <span v-if="store.user">{{ store.user.name }}</span>
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/emails">Email</RouterLink>
-        <RouterLink to="/Login">Login</RouterLink>
+        <RouterLink v-if="store.user" to="/emails">Email</RouterLink>
+        <RouterLink v-else to="/Login">Login</RouterLink>
       </nav>
     </div>
   </header>

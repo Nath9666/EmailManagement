@@ -118,6 +118,7 @@ export default {
             console.log('User found.')
             console.log(store)
             store.user = user
+            store.updateUser(user)
             console.log('User logged in.' + store.user)
             this.$router.push('./home')
           } else {
