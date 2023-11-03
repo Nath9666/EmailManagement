@@ -1,6 +1,14 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app'
-import { getFirestore, getDocs, collection, addDoc, deleteDoc, doc } from 'firebase/firestore'
+import {
+  getFirestore,
+  getDocs,
+  collection,
+  addDoc,
+  deleteDoc,
+  doc,
+  updateDoc
+} from 'firebase/firestore'
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -40,13 +48,42 @@ async function addNote(note) {
 
 // Pour recuperer les emails dans la base de donnees
 
-const emails = []
+async function refreshDataEmails(user) {
+  const emails = []
+  var queryEmails = await getDocs(collection(db, 'email'))
+  queryEmails.forEach((doc) => {
+    if (doc.data().sender === user.email) emails.push({ id: doc.id, ...doc.data() })
+  })
+  return emails
+}
 
-var queryEmails = await getDocs(collection(db, 'email'))
+async function addEmail(email, user) {
+  const emaildestination = []
 
-queryEmails.forEach((doc) => {
-  emails.push({ id: doc.id, ...doc.data() })
-})
+  email.EmailDestination.forEach((element) => {
+    emaildestination.push(element)
+  })
+
+  await addDoc(collection(db, 'email'), {
+    email: email.email,
+    description: email.description,
+    object: email.object,
+    sender: user.email,
+    EmailDestination: emaildestination,
+    sendTime: Date.now(),
+    cobeille: false
+  })
+}
+
+async function deleteEmail(id) {
+  await deleteDoc(doc(db, 'email', id))
+}
+
+async function moveEmail(id) {
+  await updateDoc(doc(db, 'email', id), {
+    cobeille: true
+  })
+}
 
 // Pour recuperer les utilisateurs dans la base de donnees
 
@@ -80,4 +117,17 @@ async function existUser(email) {
   return false
 }
 
-export default { firebaseapp, db, notes, emails, users, addNote, addUser, deleteUser, existUser }
+export default {
+  firebaseapp,
+  db,
+  notes,
+  refreshDataEmails,
+  users,
+  addNote,
+  addUser,
+  deleteUser,
+  existUser,
+  deleteEmail,
+  moveEmail,
+  addEmail
+}

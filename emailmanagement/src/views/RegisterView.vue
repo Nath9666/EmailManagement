@@ -25,6 +25,7 @@
               <div style="text-align: center">
                 <div style="display: flex; justify-content: center; gap: 10px">
                   <a
+                    @click="singInWithGithub()"
                     href="#"
                     style="
                       background-color: #ffffff;
@@ -42,6 +43,7 @@
                     <span>Github</span>
                   </a>
                   <a
+                    @click="singInWithGithub()"
                     href="#"
                     style="
                       background-color: #b50000;
@@ -58,6 +60,7 @@
                     <span>Google</span>
                   </a>
                   <a
+                    @click="singInWithWindow()"
                     href="#"
                     style="
                       background: linear-gradient(#ffffff, #000000);
@@ -258,6 +261,18 @@ export default {
         case 4:
           return { name: 'Very strong', color: '#2dce70' }
       }
+    },
+    singInWithGoogle() {
+      // sign in with google
+      alert('sign in with google')
+    },
+    singInWithWindow() {
+      // sign in with windows
+      alert('sign in with Window')
+    },
+    singInWithGithub() {
+      // sign in with Github
+      alert('sign in with Github')
     }
   }
 }

@@ -20,6 +20,9 @@ const store = useStore()
         <RouterLink to="/about">About</RouterLink>
         <RouterLink v-if="store.user" to="/emails">Email</RouterLink>
         <RouterLink v-else to="/Login">Login</RouterLink>
+        <RouterLink v-if="store.user" to="/corbeille">Corbeille</RouterLink>
+        <RouterLink v-if="store.user" to="/newEmail">New email</RouterLink>
+        <RouterLink v-if="store.user" to="/user">{{ store.user.name }}</RouterLink>
       </nav>
     </div>
   </header>
