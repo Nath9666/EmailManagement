@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import NotFound from '../views/NotFound.vue'
+import { useStore } from '../stores/user'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -44,6 +45,14 @@ const router = createRouter({
     {
       path: '/emails',
       name: 'emails',
+      beforeEnter: (to, from, next) => {
+        const store = useStore()
+        if (store.user === null) {
+          next('/login')
+        } else {
+          next()
+        }
+      },
       component: () => import('../views/EmailsView.vue')
     }
   ]

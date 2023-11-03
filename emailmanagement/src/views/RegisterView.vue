@@ -217,6 +217,9 @@ export default {
         return {
           error: 'Passwords do not match'
         }
+      } else if (firebase.existUser()) {
+        this.error = 'User already exist, please change your email'
+        return
       } else {
         // si tout est bon, on envoie les données au serveur et on renvoie à la page de login
         firebase.addUser({

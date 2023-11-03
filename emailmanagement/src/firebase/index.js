@@ -66,4 +66,18 @@ async function addUser(user) {
   })
 }
 
-export default { firebaseapp, db, notes, emails, users, addNote, addUser }
+async function deleteUser(id) {
+  await deleteDoc(doc(db, 'user', id))
+}
+
+async function existUser(email) {
+  var queryUsers = await getDocs(collection(db, 'user'))
+  queryUsers.forEach((doc) => {
+    if (doc.data().email === email) {
+      return true
+    }
+  })
+  return false
+}
+
+export default { firebaseapp, db, notes, emails, users, addNote, addUser, deleteUser, existUser }
