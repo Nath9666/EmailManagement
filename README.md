@@ -69,11 +69,21 @@ Voici quelque lien externe que nous avons utilisée
 - [X] lier la base de donnée firebase à notre projet
   - [ ] mettre les clée de l'apî dans un .env (pas possible pour le moment)
 - [X] creer les pages de login et de sign in
-  - [ ] creer 2 utilisateurs avec mot de passe
+  - [X] creer 2 utilisateurs avec mot de passe
 - [ ] bouton de Aouth microsft (or git) pour les utilisateurs
-- [ ] faire la page ou on voit les mails
-  - [ ] envoyer un message
-  - [ ] supprimer un mail
+- [X] faire la page ou on voit les mails
+  - [X] envoyer un message
+  - [X] supprimer un mail (nous mettons tous dans un corbeille)
 - [ ] refaire le css des pages
 - [X] check les routes pour quelle soit sécurité
   - [X] faire une page erreur 404 si route pas trouvé
+
+## Les différents utilisateurs que vous pouvez utilisers
+
+| Nom          | Mot de passe   | email        |
+| ------------ | -------------- | ------------ |
+| Nathan       | azertyuiop     | natha@       |
+| Laura        | 4T7968QSzHpuh  | laura@Sadaa  |
+| Minggao Gong | RGt83gmQTx53b6 | Minggao@Gong |
+
+Vous pouvez les importer grace au fichier csv que vous trouverez [ici](password.csv)
