@@ -64,19 +64,21 @@ Voici quelque lien externe que nous avons utilisée
 
 ## Todo list
 
-- [X] enlever les choses appartenant au template
-- [X] creer 2 tables pour la base de donnée
-- [X] lier la base de donnée firebase à notre projet
+- [x] enlever les choses appartenant au template
+- [x] creer 2 tables pour la base de donnée
+- [x] lier la base de donnée firebase à notre projet
   - [ ] mettre les clée de l'apî dans un .env (pas possible pour le moment)
-- [X] creer les pages de login et de sign in
-  - [X] creer 2 utilisateurs avec mot de passe
+- [x] creer les pages de login et de sign in
+  - [x] creer 2 utilisateurs avec mot de passe
 - [ ] bouton de Aouth microsft (or git) pour les utilisateurs
-- [X] faire la page ou on voit les mails
-  - [X] envoyer un message
-  - [X] supprimer un mail (nous mettons tous dans un corbeille)
+- [x] faire la page ou on voit les mails
+  - [x] envoyer un message
+  - [x] supprimer un mail (nous mettons tous dans un corbeille)
 - [ ] refaire le css des pages
-- [X] check les routes pour quelle soit sécurité
-  - [X] faire une page erreur 404 si route pas trouvé
+- [x] check les routes pour quelle soit sécurité
+  - [x] faire une page erreur 404 si route pas trouvé
+- [ ] faire la page d'utilisateur
+- [ ] la page ou on voie les mails dans la corbeille
 
 ## Les différents utilisateurs que vous pouvez utilisers
 
