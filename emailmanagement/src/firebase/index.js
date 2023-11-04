@@ -52,7 +52,9 @@ async function refreshDataEmails(user) {
   const emails = []
   var queryEmails = await getDocs(collection(db, 'email'))
   queryEmails.forEach((doc) => {
-    if (doc.data().sender === user.email) emails.push({ id: doc.id, ...doc.data() })
+    doc.data().EmailDestination.forEach((element) => {
+      if (element === user.email) emails.push({ id: doc.id, ...doc.data() })
+    })
   })
   return emails
 }
@@ -65,13 +67,12 @@ async function addEmail(email, user) {
   })
 
   await addDoc(collection(db, 'email'), {
-    email: email.email,
     description: email.description,
     object: email.object,
     sender: user.email,
     EmailDestination: emaildestination,
     sendTime: Date.now(),
-    cobeille: false
+    corbeille: false
   })
 }
 
@@ -81,7 +82,7 @@ async function deleteEmail(id) {
 
 async function moveEmail(id) {
   await updateDoc(doc(db, 'email', id), {
-    cobeille: true
+    corbeille: true
   })
 }
 

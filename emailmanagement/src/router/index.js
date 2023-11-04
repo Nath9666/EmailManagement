@@ -54,6 +54,19 @@ const router = createRouter({
         }
       },
       component: () => import('../views/EmailsView.vue')
+    },
+    {
+      path: '/emails/new',
+      name: 'newEmail',
+      beforeEnter: (to, from, next) => {
+        const store = useStore()
+        if (store.user === null) {
+          next('/login')
+        } else {
+          next()
+        }
+      },
+      component: () => import('../views/NewEmail.vue')
     }
   ]
 })
