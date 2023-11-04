@@ -14,7 +14,7 @@ export default {
   beforeUnmount() {
     const header = document.querySelector("header");
     if (header) {
-      header.style.display = "block";
+      header.style.display = "flex";
     }
   },
 }
