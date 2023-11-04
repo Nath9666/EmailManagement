@@ -67,6 +67,19 @@ const router = createRouter({
         }
       },
       component: () => import('../views/NewEmail.vue')
+    },
+    {
+      path: '/user',
+      name: 'user',
+      beforeEnter: (to, from, next) => {
+        const store = useStore()
+        if (store.user === null) {
+          next('/login')
+        } else {
+          next()
+        }
+      },
+      component: () => import('../views/Pages/UserProfile.vue')
     }
   ]
 })

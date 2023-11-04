@@ -8,19 +8,22 @@ const store = useStore()
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo/logo.svg" width="125" height="125" />
+    <img
+      alt="Vue logo"
+      class="logo"
+      src="@/assets/logo/NatureEmailV2.png"
+      width="125"
+      height="125"
+    />
 
     <div class="wrapper">
       <HelloWorld msg="Welcome to Emailo, "> </HelloWorld>
-
-      <span v-if="store.user">{{ store.user.name }}</span>
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
         <RouterLink v-if="store.user" to="/emails">Email</RouterLink>
         <RouterLink v-else to="/Login">Login</RouterLink>
-        <RouterLink v-if="store.user" to="/corbeille">Corbeille</RouterLink>
         <RouterLink v-if="store.user" to="/emails/new">New email</RouterLink>
         <RouterLink v-if="store.user" to="/user">{{ store.user.name }}</RouterLink>
       </nav>

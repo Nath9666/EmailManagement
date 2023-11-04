@@ -62,22 +62,20 @@ todo : creata form to create a new email (in a other page)
   </div>
 </template>
 
-<style>
+<style scoped>
 button {
-  background-color: #e7e7e7;
-  /* coin arrondi */
-  border-radius: 50px;
-  color: black;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
+  background-color: #9b59b6; /* Purple */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
   font-size: 16px;
+  margin: 2px;
 }
 
 button:hover {
-  background-color: #ddd;
-  color: black;
+  background-color: #8e44ad; /* Darker purple */
 }
 
 @media (min-width: 1024px) {

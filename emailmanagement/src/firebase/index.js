@@ -100,7 +100,33 @@ async function addUser(user) {
   await addDoc(collection(db, 'user'), {
     email: user.email,
     password: user.password,
-    name: user.name
+    name: user.name,
+    firstname: null,
+    lastname: null,
+    age: null,
+    sexe: null,
+    adress: null,
+    city: null,
+    country: null,
+    about: null
+  })
+}
+
+async function updateUser(id, user) {
+  console.log(user)
+  console.log(id)
+  await updateDoc(doc(db, 'user', id), {
+    email: user.email,
+    password: user.password,
+    name: user.name,
+    firstname: user.firstname,
+    lastname: user.lastname,
+    age: user.age,
+    sexe: user.sexe,
+    adress: user.adress,
+    city: user.city,
+    country: user.country,
+    about: user.about
   })
 }
 
@@ -130,5 +156,6 @@ export default {
   existUser,
   deleteEmail,
   moveEmail,
-  addEmail
+  addEmail,
+  updateUser
 }

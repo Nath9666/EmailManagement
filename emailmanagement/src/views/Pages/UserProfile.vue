@@ -1,54 +1,80 @@
 <template>
   <div>
-    <div
-      class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center profile-header"
-      style="
-        min-height: 600px;
-        background-image: url(img/theme/profile-cover.jpg);
-        background-size: cover;
-        background-position: center top;
-      "
-    >
-      <b-container fluid>
+    <div>
+      <div fluid>
         <!-- Mask -->
         <span class="mask bg-gradient-success opacity-8"></span>
         <!-- Header container -->
-        <b-container fluid class="d-flex align-items-center">
-          <b-row>
-            <b-col lg="7" md="10">
-              <h1 class="display-2 text-white">Hello Jesse</h1>
+        <div fluid class="d-flex align-items-center">
+          <div>
+            <div lg="7" md="10">
+              <h1 class="display-2 text-white">Hello {{ user.name }}</h1>
               <p class="text-white mt-0 mb-5">
-                This is your profile page. You can see the progress you've made with your work and
-                manage your projects or assigned tasks
+                Ceci est votre page de profil. Vous pouvez voir et modifié les quelques informations
               </p>
-              <a href="#!" class="btn btn-info">Edit profile</a>
-            </b-col>
-          </b-row>
-        </b-container>
-      </b-container>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <b-container fluid class="mt--6">
-      <b-row>
-        <b-col xl="4" class="order-xl-2 mb-5">
-          <user-card></user-card>
-        </b-col>
-        <b-col xl="8" class="order-xl-1">
+    <div fluid class="mt--6">
+      <div>
+        <div xl="8" class="order-xl-1">
           <edit-profile-form></edit-profile-form>
-        </b-col>
-      </b-row>
-    </b-container>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p>Zone dangereuse</p>
+      <button @click="this.logOut()">Log out</button>
+      <button @click="this.deleteMyCount()">Delete My count</button>
+    </div>
   </div>
 </template>
 <script>
 import EditProfileForm from './UserProfile/EditProfileForm.vue'
-import UserCard from './UserProfile/UserCard.vue'
+import firebase from '../../firebase'
+
+import { useStore } from '../../stores/user'
+
+const store = useStore()
 
 export default {
   components: {
-    EditProfileForm,
-    UserCard
+    EditProfileForm
+  },
+  data() {
+    return {
+      user: store.user
+    }
+  },
+  methods: {
+    logOut() {
+      store.user = null
+      this.$router.push('/home')
+    },
+    deleteMyCount() {
+      firebase.deleteUser(store.user.id)
+      store.user = null
+      this.$router.push('/home')
+    }
   }
 }
 </script>
-<style></style>
+<style>
+button {
+  background-color: #67337c; /* Purple */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 1px;
+}
+
+button:hover {
+  background-color: #8e44ad; /* Darker purple */
+}
+</style>
