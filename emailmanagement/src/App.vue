@@ -76,6 +76,7 @@ nav a:first-of-type {
 
   .logo {
     margin: 0 2rem 0 0;
+    width: 151px;
   }
 
   header .wrapper {

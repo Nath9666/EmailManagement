@@ -28,6 +28,7 @@ h3 {
 .greetings h1,
 .greetings h3 {
   text-align: center;
+  min-width: 9em;
 }
 
 @media (min-width: 1024px) {
