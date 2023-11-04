@@ -43,7 +43,7 @@
                     <span>Github</span>
                   </a>
                   <a
-                    @click="singInWithGithub()"
+                    @click="singInWithGoogle()"
                     href="#"
                     style="
                       background-color: #b50000;
@@ -220,9 +220,9 @@ export default {
         return {
           error: 'Passwords do not match'
         }
-      // } else if (firebase.existUser()) {
-      //   this.error = 'User already exist, please change your email'
-      //   return
+      } else if (firebase.existUser()) {
+        this.error = 'User already exist, please change your email'
+        return
       } else {
         // si tout est bon, on envoie les données au serveur et on renvoie à la page de login
         firebase.addUser({
@@ -265,6 +265,8 @@ export default {
     singInWithGoogle() {
       // sign in with google
       alert('sign in with google')
+      const user = firebase.signInWithGoogle()
+      console.log(user)
     },
     singInWithWindow() {
       // sign in with windows

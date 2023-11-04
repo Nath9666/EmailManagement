@@ -9,8 +9,8 @@ import {
   doc,
   updateDoc
 } from 'firebase/firestore'
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+
+import { getAuth, signInWithRedirect, GoogleAuthProvider, onAuthStateChanged } from 'firebase/auth'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -25,6 +25,19 @@ const firebaseConfig = {
 // Initialize Firebase
 const firebaseapp = initializeApp(firebaseConfig)
 const db = getFirestore(firebaseapp)
+const auth = getAuth(firebaseapp)
+
+function signInWithGoogle() {
+  signInWithRedirect(auth, new GoogleAuthProvider())
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      console.log('User is signed in')
+      return user
+    } else {
+      console.log('User is signed out')
+    }
+  })
+}
 
 // Pour recuperer les notes dans la base de donnees
 
@@ -157,5 +170,6 @@ export default {
   deleteEmail,
   moveEmail,
   addEmail,
-  updateUser
+  updateUser,
+  signInWithGoogle
 }
